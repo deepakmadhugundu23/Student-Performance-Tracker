@@ -1,5 +1,5 @@
 # Student-Performance-Tracker
-# Diagnostics Dashboard
+# 🔗 **[Launch Intellectrack](https://intellectrack.streamlit.app)**
 
 An interactive Python dashboard built with Streamlit that tracks student academic performance and delivers automated, data-driven diagnostic feedback.
 
