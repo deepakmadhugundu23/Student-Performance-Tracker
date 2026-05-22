@@ -17,16 +17,16 @@ student_name = st.text_input("Enter student name", "")
 input_col1, input_col2, input_col3, input_col4 = st.columns(4)
 
 with input_col1:
-    math = st.slider("Math", 0, 100, 85)
+    math = st.slider("Math", 0, 100, 0)
 
 with input_col2:
-    science = st.slider("Science", 0, 100, 78)
+    science = st.slider("Science", 0, 100, 0)
 
 with input_col3:
-    english = st.slider("English", 0, 100, 92)
+    english = st.slider("English", 0, 100, 0)
 
 with input_col4:
-    history = st.slider("History", 0, 100, 65)
+    history = st.slider("History", 0, 100, 0)
 
 st.markdown("---")
 
