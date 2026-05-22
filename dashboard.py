@@ -12,7 +12,7 @@ st.write("Track student marks, view progress charts, and get study recommendatio
 st.markdown("---")
 
 st.subheader("Student Details & Marks Entry")
-student_name = st.text_input("Student Name", "Deepak M")
+student_name = st.text_input("Enter student name", "")
 
 input_col1, input_col2, input_col3, input_col4 = st.columns(4)
 
@@ -56,19 +56,22 @@ st.markdown("---")
 st.subheader("Performance Review")
 
 if st.button("Generate Recommendations", type="primary"):
-    with st.spinner("Analyzing marks..."):
-        st.markdown(f"### Report for **{student_name}**")
-        st.write(f"🌟 **Strongest Subject:** Doing excellent work in **{metrics['highest_sub']}**.")
-        
-        low_g = metrics['lowest_grade']
-        low_s = metrics['lowest_sub']
-        
-        if low_g < 70:
-            st.error(f"Attention Needed: {low_s} marks are low at {low_g}%.")
-            st.write(f"**Recommendation:** Spend 30 minutes daily reviewing foundational topics in {low_s} before the next exams.")
-        elif low_g < 85:
-            st.warning(f"Room for Improvement: {low_s} has slight gaps at {low_g}%.")
-            st.write(f"**Recommendation:** Solve extra practice problems in {low_s} to help bring this score up.")
-        else:
-            st.success("Great Job: Performing well across all subjects!")
-            st.write("**Recommendation:** Try advanced study materials to stay challenged and ahead of the class.")
+    if not student_name.strip():
+        st.warning("Please enter a student name first!")
+    else:
+        with st.spinner("Analyzing marks..."):
+            st.markdown(f"### Report for **{student_name}**")
+            st.write(f"🌟 **Strongest Subject:** Doing excellent work in **{metrics['highest_sub']}**.")
+            
+            low_g = metrics['lowest_grade']
+            low_s = metrics['lowest_sub']
+            
+            if low_g < 70:
+                st.error(f"Attention Needed: {low_s} marks are low at {low_g}%.")
+                st.write(f"**Recommendation:** Spend 30 minutes daily reviewing foundational topics in {low_s} before the next exams.")
+            elif low_g < 85:
+                st.warning(f"Room for Improvement: {low_s} has slight gaps at {low_g}%.")
+                st.write(f"**Recommendation:** Solve extra practice problems in {low_s} to help bring this score up.")
+            else:
+                st.success("Great Job: Performing well across all subjects!")
+                st.write("**Recommendation:** Try advanced study materials to stay challenged and ahead of the class.")
